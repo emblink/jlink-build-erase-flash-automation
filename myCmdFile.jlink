@@ -1,0 +1,6 @@
+r
+h
+erase
+loadbin ./HeraclesKeyboardBootloader.bin,0
+r
+q

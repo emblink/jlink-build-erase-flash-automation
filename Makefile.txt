@@ -1,0 +1,17 @@
+clean:				## tidy build directory
+	@echo Tyding things up...
+	-rm -f *.o $(TARGET) $(DEPS)
+
+all:
+	rm -f *elf *map *bin
+	cp /d/__Developex__Work__/heracleskeyboardbootloader/bin/Release/HeraclesKeyboardBootloader* .
+	cp /d/__Developex__Work__/heracleskeyboardfirmware/bin/Release/HeraclesApplicationFirmware* .
+	python /d/__Developex__Work__/heracleskeyboardbootloader/scripts/signer.py ./HeraclesKeyboardBootloader.bin -v
+	python /d/__Developex__Work__/heracleskeyboardfirmware/scripts/fwHeaderSigner.py ./HeraclesApplicationFirmware.bin 0 -v
+	truncate -s $((0x10000)) HeraclesKeyboardBootloader.bin
+	cat HeraclesApplicationFirmware.bin >> HeraclesKeyboardBootloader.bin
+	rm -f HeraclesApplicationFirmware.bin
+
+	JLinkGDBServer.exe connect -device LPC54605J512 -if swd -speed 4000
+	monitor reset
+	load HeraclesKeyboardBootloader.bin
