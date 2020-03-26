@@ -15,3 +15,9 @@ all:
 	JLinkGDBServer.exe connect -device LPC54605J512 -if swd -speed 4000
 	monitor reset
 	load HeraclesKeyboardBootloader.bin
+
+
+mingw32-make.exe -f Makefile.mk all
+mingw32-make.exe -f Makefile.mk clean
+mingw32-make.exe -f Makefile.mk load
+
