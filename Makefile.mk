@@ -9,12 +9,12 @@ load: clean HeraclesApplicationFirmware.bin
 HeraclesApplicationFirmware.bin: build
 
 build: clean
-	cp /d/__Developex__Work__/heracleskeyboardbootloader/bin/Release/HeraclesKeyboardBootloader* .
+	cp /d/__Developex__Work__/heracleskeyboardbootloader/bin/Release/HeraclesBootloaderFirmware* .
 	cp /d/__Developex__Work__/heracleskeyboardfirmware/bin/Release/HeraclesApplicationFirmware* .
-	python ./signer.py ./HeraclesKeyboardBootloader.bin
+	python ./signer.py ./HeraclesBootloaderFirmware.bin
 	python ./fwHeaderSigner.py ./HeraclesApplicationFirmware.bin 0
-	truncate -s 65536 HeraclesKeyboardBootloader.bin
-	cat HeraclesApplicationFirmware.bin >> HeraclesKeyboardBootloader.bin
+	truncate -s 65536 HeraclesBootloaderFirmware.bin
+	cat HeraclesApplicationFirmware.bin >> HeraclesBootloaderFirmware.bin
 	rm -f HeraclesApplicationFirmware.bin
 	@echo Build Success!
 

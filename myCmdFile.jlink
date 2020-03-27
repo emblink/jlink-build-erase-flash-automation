@@ -1,6 +1,6 @@
 r
 h
 erase
-loadbin ./HeraclesKeyboardBootloader.bin,0
+loadbin ./HeraclesBootloaderFirmware.bin,0
 r
 q
