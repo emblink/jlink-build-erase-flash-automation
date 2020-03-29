@@ -1,6 +1,8 @@
 clean:				## tidy build directory
 	@echo Tyding things up...
 	-rm -f *.o $(TARGET) $(DEPS)
+load:
+	JLinkGDBServer.exe connect -device LPC54605J512 -if swd -speed 4000
 
 all:
 	rm -f *elf *map *bin
@@ -15,6 +17,13 @@ all:
 	JLinkGDBServer.exe connect -device LPC54605J512 -if swd -speed 4000
 	monitor reset
 	load HeraclesKeyboardBootloader.bin
+
+
+mingw32-make.exe -f Makefile.mk all
+
+clean:				## tidy build directory
+	@echo Tyding things up...
+	-rm -f *.o $(TARGET) $(DEPS)
 
 
 mingw32-make.exe -f Makefile.mk all
