@@ -1,7 +1,7 @@
 APPLICATION = HeraclesApplicationFirmware.bin
 BOOTLOADER = HeraclesBootloaderFirmware.bin
-APPLICATION_PATH = /d/__Developex__Work__/heracleskeyboardbootloader/bin/Release/HeraclesBootloaderFirmware
-BOOTLOADER_PATH = /d/__Developex__Work__/heracleskeyboardfirmware/bin/Release/HeraclesApplicationFirmware
+APPLICATION_PATH = /d/__Developex__Work__/heracleskeyboardfirmware/bin/Release/HeraclesApplicationFirmware
+BOOTLOADER_PATH = /d/__Developex__Work__/heracleskeyboardbootloader/bin/Release/HeraclesBootloaderFirmware
 
 all: build load
 	@echo Done!
