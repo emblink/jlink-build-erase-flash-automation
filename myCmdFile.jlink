@@ -1,6 +1,5 @@
 r
 h
-erase
 loadbin ./HeraclesBootloaderFirmware.bin,0
 r
 q
